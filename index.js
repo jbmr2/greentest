@@ -8,31 +8,23 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const port = process.env.PORT || 3000;
 
-console.log('--- Debug Info ---');
-console.log('Node Version:', process.version);
-console.log('Current Directory:', __dirname);
-import fs from 'fs';
-if (fs.existsSync(path.join(__dirname, 'dist'))) {
-  console.log('dist/ directory exists');
-  console.log('dist/ contents:', fs.readdirSync(path.join(__dirname, 'dist')));
-} else {
-  console.log('dist/ directory DOES NOT exist');
-}
-console.log('------------------');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const distPath = path.join(__dirname, 'dist');
 
 // Serve static files from the 'dist' directory
-const distPath = path.join(__dirname, 'dist');
 app.use(express.static(distPath));
+
+// Health check endpoint
+app.get('/ping', (req, res) => res.send('pong'));
 
 // Handle SPA routing: return index.html for all requests
 app.get('*', (req, res) => {
-  const indexPath = path.join(distPath, 'index.html');
-  res.sendFile(indexPath, (err) => {
-    if (err) {
-      console.error('Error sending index.html:', err);
-      res.status(404).send('Build files not found. Please ensure "npm run build" has completed successfully.');
-    }
-  });
+  res.sendFile(path.join(distPath, 'index.html'));
+});
+
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
 
 app.listen(port, () => {
