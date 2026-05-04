@@ -1,0 +1,168 @@
+import { motion } from "motion/react";
+import { Layers, Calendar, MapPin, ArrowRight, Trophy } from "lucide-react";
+import { useTournamentData } from "../lib/useTournamentData";
+
+export function SeriesOverview() {
+  const { teams, schedule } = useTournamentData();
+
+  // Dynamically group matches into series based on team pairs
+  const seriesGroups = schedule.reduce((acc, match) => {
+    if (match.id === 'final') return acc;
+    
+    // Create a unique key for the team pair regardless of order
+    const teamPair = [match.team1, match.team2].sort();
+    const key = teamPair.join('-');
+    
+    if (!acc[key]) {
+      acc[key] = {
+        id: key,
+        team1: teamPair[0],
+        team2: teamPair[1],
+        matches: []
+      };
+    }
+    acc[key].matches.push(match);
+    return acc;
+  }, {} as Record<string, { id: string, team1: string, team2: string, matches: any[] }>);
+
+  const seriesList = Object.values(seriesGroups);
+  const finalMatch = schedule.find(m => m.id === 'final');
+
+  return (
+    <div className="bg-paper min-h-screen pt-24 pb-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mb-12">
+          <div className="flex items-center gap-4 mb-4">
+            <div className="p-3 bg-cricket-green/10 rounded-2xl text-cricket-green">
+              <Layers className="w-8 h-8" />
+            </div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-medium text-ink">Series Overview</h1>
+          </div>
+          <p className="text-lg md:text-xl text-ink/60 font-light border-b border-ink/10 pb-6 md:pb-8">
+             A detailed breakdown of the six 3-match series and the Grand Final.
+          </p>
+        </div>
+
+        {seriesList.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {seriesList.map((series: any, i: number) => {
+              const t1 = teams.find(t => t.id === series.team1);
+              const t2 = teams.find(t => t.id === series.team2);
+              if(!t1 || !t2) return null;
+
+              return (
+                <motion.div 
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: i * 0.1 }}
+                  key={series.id}
+                  className="bg-surface rounded-[2.5rem] border border-ink/5 overflow-hidden flex flex-col group hover:shadow-2xl hover:-translate-y-1 transition-all"
+                >
+                  <div className="p-8 border-b border-ink/5 bg-ink/5 flex justify-between items-center">
+                     <span className="text-xs font-bold text-cricket-green uppercase tracking-[0.2em]">Series {i + 1}</span>
+                     <div className="bg-pink-ball/10 px-3 py-1 rounded-full">
+                        <span className="text-[10px] font-bold text-pink-ball uppercase tracking-widest">0 - 0</span>
+                     </div>
+                  </div>
+                  
+                  <div className="p-8 flex-grow">
+                     <div className="flex items-center justify-between mb-8">
+                        <div className="text-center flex-1">
+                           <img src={t1.logo} className="w-12 h-12 rounded-full mx-auto mb-3 shadow-lg" alt={t1.name} />
+                           <div className="text-xl font-serif text-ink mb-1">{t1.short}</div>
+                           <div className={`w-full h-1 rounded-full ${t1.color}`} />
+                        </div>
+                        <div className="px-4 font-serif italic text-ink/20 text-xl self-end mb-2">vs</div>
+                        <div className="text-center flex-1">
+                           <img src={t2.logo} className="w-12 h-12 rounded-full mx-auto mb-3 shadow-lg" alt={t2.name} />
+                           <div className="text-xl font-serif text-ink mb-1">{t2.short}</div>
+                           <div className={`w-full h-1 rounded-full ${t2.color}`} />
+                        </div>
+                     </div>
+
+                     <div className="space-y-4">
+                        <div className="text-[10px] font-bold text-ink/30 uppercase tracking-[0.2em] mb-2">Match Schedule</div>
+                        {series.matches.map((m: any, idx: number) => (
+                          <div key={idx} className="flex items-center gap-4 text-xs">
+                             <div className="w-8 h-8 rounded-full bg-paper border border-ink/5 flex items-center justify-center shrink-0 font-serif font-bold text-ink/40">
+                                {idx + 1}
+                             </div>
+                             <div className="flex-1">
+                                <div className="flex items-center gap-2 text-ink/80">
+                                   <Calendar className="w-3 h-3 text-pink-ball" />
+                                   {new Date(m.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric'})}
+                                </div>
+                                <div className="flex items-center gap-2 text-ink/40 font-medium">
+                                   <MapPin className="w-3 h-3" />
+                                   {m.venue}
+                                </div>
+                             </div>
+                          </div>
+                        ))}
+                     </div>
+                  </div>
+
+                  <div className="p-6 bg-paper/30 border-t border-ink/5 mt-auto">
+                     <button className="w-full py-3 bg-surface border border-ink/10 rounded-2xl text-[10px] font-bold uppercase tracking-widest text-ink/60 hover:text-cricket-green hover:border-cricket-green transition-all flex items-center justify-center gap-2">
+                        Series Details <ArrowRight className="w-3 h-3" />
+                     </button>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        ) : (
+          <div className="text-center py-20">
+            <div className="inline-flex items-center justify-center p-8 bg-surface rounded-[3rem] border border-ink/5 shadow-sm mb-6">
+               <Layers className="w-12 h-12 text-ink/20" />
+            </div>
+            <h2 className="text-3xl font-serif text-ink mb-2">Coming Soon</h2>
+            <p className="text-ink/60 font-light text-lg">We are organizing the series matchups. Details will be available shortly.</p>
+          </div>
+        )}
+
+        {/* Grand Final Feature */}
+        {finalMatch && seriesList.length > 0 && (
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mt-20 relative rounded-[3rem] overflow-hidden bg-ink p-1 md:p-1.5"
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-cricket-green via-ink to-pink-ball opacity-30" />
+            <div className="relative bg-surface rounded-[2.8rem] p-8 md:p-16 flex flex-col items-center text-center overflow-hidden">
+               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-gradient-to-b from-cricket-green/5 to-transparent pointer-events-none" />
+               
+               <Trophy className="w-20 h-20 text-cricket-green mb-8 relative z-10" />
+               <h6 className="text-xs font-bold tracking-[0.4em] uppercase text-cricket-green-light mb-4 relative z-10">The Ultimate Showdown</h6>
+               <h2 className="text-5xl md:text-7xl font-serif font-black text-ink mb-8 relative z-10">GRAND FINAL</h2>
+               
+               <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16 mb-12 relative z-10">
+                  <div className="flex flex-col items-center">
+                     <div className="w-24 h-24 rounded-full bg-paper border-4 border-ink/5 mb-4 shadow-2xl flex items-center justify-center text-ink/20 font-serif text-4xl">T1</div>
+                     <span className="font-serif text-2xl text-ink">Top Qualifier</span>
+                  </div>
+                  <div className="text-4xl font-serif italic text-pink-ball">vs</div>
+                  <div className="flex flex-col items-center">
+                     <div className="w-24 h-24 rounded-full bg-paper border-4 border-ink/5 mb-4 shadow-2xl flex items-center justify-center text-ink/20 font-serif text-4xl">T2</div>
+                     <span className="font-serif text-2xl text-ink">Second Qualifier</span>
+                  </div>
+               </div>
+
+               <div className="bg-paper/50 backdrop-blur-md border border-ink/5 px-8 py-4 rounded-full flex flex-wrap justify-center gap-8 text-sm relative z-10">
+                  <div className="flex items-center gap-2 text-ink/70">
+                     <Calendar className="w-4 h-4 text-pink-ball" />
+                     {new Date(finalMatch.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric'})}
+                  </div>
+                  <div className="flex items-center gap-2 text-ink/70">
+                     <MapPin className="w-4 h-4 text-cricket-green" />
+                     {finalMatch.venue}
+                  </div>
+               </div>
+            </div>
+          </motion.div>
+        )}
+      </div>
+    </div>
+  );
+}
