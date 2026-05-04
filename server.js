@@ -9,11 +9,18 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 // Serve static files from the 'dist' directory
-app.use(express.static(path.join(__dirname, 'dist')));
+const distPath = path.join(__dirname, 'dist');
+app.use(express.static(distPath));
 
 // Handle SPA routing: return index.html for all requests
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+  const indexPath = path.join(distPath, 'index.html');
+  res.sendFile(indexPath, (err) => {
+    if (err) {
+      console.error('Error sending index.html:', err);
+      res.status(404).send('Build files not found. Please ensure "npm run build" has completed successfully.');
+    }
+  });
 });
 
 app.listen(port, () => {
