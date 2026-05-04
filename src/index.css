@@ -1,1 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
 @import "tailwindcss";
+
+@theme {
+  --font-serif: "Teko", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-cricket-green: #1a4f3b;
+  --color-cricket-green-dark: #123829;
+  --color-cricket-green-light: #2c7a5f;
+  --color-pink-ball: #ff2a70;
+  --color-pink-ball-dark: #cc1b56;
+  --color-neon-green: #a3ff12;
+  --color-paper: #050c09;
+  --color-surface: #0a1711;
+  --color-surface-hover: #10241b;
+  --color-ink: #f8fafc;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  text-transform: uppercase;
+}
+
+::selection {
+  background-color: var(--color-pink-ball);
+  color: white;
+}
