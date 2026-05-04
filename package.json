@@ -9,9 +9,7 @@
   "scripts": {
     "dev": "vite --port=3000 --host=0.0.0.0",
     "build": "vite build",
-    "preview": "vite preview",
-    "prestart": "npm run build",
-    "start": "node server.js",
+    "start": "npm run build && node server.js",
     "clean": "rm -rf dist",
     "lint": "tsc --noEmit"
   },

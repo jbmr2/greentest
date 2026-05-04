@@ -8,6 +8,18 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const port = process.env.PORT || 3000;
 
+console.log('--- Debug Info ---');
+console.log('Node Version:', process.version);
+console.log('Current Directory:', __dirname);
+import fs from 'fs';
+if (fs.existsSync(path.join(__dirname, 'dist'))) {
+  console.log('dist/ directory exists');
+  console.log('dist/ contents:', fs.readdirSync(path.join(__dirname, 'dist')));
+} else {
+  console.log('dist/ directory DOES NOT exist');
+}
+console.log('------------------');
+
 // Serve static files from the 'dist' directory
 const distPath = path.join(__dirname, 'dist');
 app.use(express.static(distPath));
