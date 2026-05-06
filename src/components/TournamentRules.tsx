@@ -7,10 +7,10 @@ export function TournamentRules() {
       title: "Match Format",
       icon: Timer,
       details: [
-        "Matches are played over 3 consecutive days using the Pink Ball.",
-        "Each team plays 2 innings per match.",
-        "A match is declared a DRAW if 3 days end without a full result.",
-        "Bonus points are awarded for First Innings lead in draws."
+        "League matches are played over 2 consecutive days.",
+        "Knockout matches (Semi-Finals & Final) are played over 3 days.",
+        "Day-Night Pink Ball format for all matches.",
+        "Professional long-format competitive environment."
       ]
     },
     {

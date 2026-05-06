@@ -11,10 +11,10 @@ export function About() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-             <h6 className="text-xs font-bold tracking-widest uppercase text-cricket-green mb-6">About the Tournament</h6>
-             <h1 className="text-5xl md:text-7xl font-serif font-medium mb-8 leading-tight text-ink">
-               JBMR <span className="text-cricket-green">Green</span><br className="hidden md:block"/>
-               Test Trophy™
+             <h6 className="text-xs font-bold tracking-widest uppercase text-cricket-green mb-6">Tournament Objective</h6>
+             <h1 className="text-4xl md:text-7xl font-serif font-medium mb-8 leading-tight text-ink uppercase">
+               Jai Baba Mohan Ram <br className="hidden md:block"/>
+               <span className="text-cricket-green">Green</span> Test Trophy
              </h1>
           </motion.div>
         </div>
@@ -45,10 +45,13 @@ export function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
             >
-              <h2 className="text-3xl font-serif mb-6 text-ink">The Spirit of the Game</h2>
+              <h2 className="text-3xl font-serif mb-6 text-ink">The Vision</h2>
               <div className="prose prose-lg text-ink/70 font-light leading-relaxed">
                 <p>
-                  JBMR Green Test Trophy™ is a unique cricket tournament designed to celebrate the values of long-format cricket through competitive 3-day pink ball matches. Built on discipline, patience, and character, the tournament creates a platform for serious cricketers who respect the traditional spirit of the game while embracing a modern presentation.
+                  The Jai Baba Mohan Ram Green Test Trophy is a premier long-format cricket tournament created to revive the true spirit of Test cricket through discipline, patience, strategy, temperament, and competitive multi-day matches.
+                </p>
+                <p>
+                  Designed around the traditional values of cricket, the tournament brings together competitive teams in a professional day-night pink ball format that challenges skill, consistency, and character over multiple days.
                 </p>
               </div>
             </motion.section>
@@ -58,10 +61,17 @@ export function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
             >
-              <h3 className="text-3xl font-serif text-ink mb-6">Green Initiative</h3>
+              <h3 className="text-3xl font-serif text-ink mb-6">Values We Promote</h3>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mb-8">
+                {["Discipline", "Patience", "Character", "Match Awareness", "Temperament", "Strategy"].map(value => (
+                  <div key={value} className="bg-surface p-4 rounded-xl border border-ink/5 text-center font-serif text-lg text-cricket-green uppercase tracking-wide">
+                    {value}
+                  </div>
+                ))}
+              </div>
               <div className="prose prose-lg text-ink/70 font-light leading-relaxed border-l-2 border-cricket-green pl-6 py-2">
                 <p>
-                  Alongside cricket, the tournament promotes sustainability through green initiatives and tree plantation, highlighting that both nature and greatness require time to grow. Growing the Game. Growing the Planet.
+                  The format encourages players to value time, partnerships, planning, and mental strength — qualities that define the traditional game.
                 </p>
               </div>
             </motion.section>
@@ -72,9 +82,10 @@ export function About() {
                viewport={{ once: true, margin: "-100px" }}
                className="bg-cricket-green text-paper p-12 rounded-[2rem]"
             >
-              <h3 className="text-3xl font-serif mb-6 text-white text-center">Our Commitment</h3>
+              <h3 className="text-3xl font-serif mb-6 text-white text-center">Green Initiative</h3>
               <p className="text-lg text-paper/80 font-light leading-relaxed text-center mb-0">
-                We Plant Trees Because Growth Takes Time — Just Like Test Cricket. The JBMR Green Test Trophy™ goes beyond cricket by promoting environmental responsibility through tree plantation initiatives.
+                The Green Test Trophy is more than a cricket tournament. It also supports environmental awareness through green initiatives and tree plantation activities connected with the event. <br/><br/>
+                <span className="font-bold text-white uppercase tracking-widest">Grow the Game. Grow the Planet.</span>
               </p>
             </motion.section>
           </div>

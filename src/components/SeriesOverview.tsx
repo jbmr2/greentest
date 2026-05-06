@@ -39,8 +39,42 @@ export function SeriesOverview() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-medium text-ink">Series Overview</h1>
           </div>
           <p className="text-lg md:text-xl text-ink/60 font-light border-b border-ink/10 pb-6 md:pb-8">
-             A detailed breakdown of the six 3-match series and the Grand Final.
+             12 Teams • 4 Pools • 2-Day League Matches • 3-Day Knockouts
           </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+          <div className="bg-surface p-8 rounded-[2.5rem] border border-ink/5">
+             <h3 className="text-2xl font-serif text-ink mb-6 uppercase tracking-tight">Match Structure</h3>
+             <ul className="space-y-4">
+                {[
+                  { label: "League Stage", value: "2-Day Matches" },
+                  { label: "Semi Finals", value: "2 Matches — 3 Days Each" },
+                  { label: "Grand Final", value: "3-Day Pink Ball Match" },
+                ].map((item) => (
+                  <li key={item.label} className="flex justify-between items-center border-b border-ink/5 pb-2">
+                    <span className="text-ink/60 text-sm font-medium">{item.label}</span>
+                    <span className="text-cricket-green font-serif text-lg">{item.value}</span>
+                  </li>
+                ))}
+             </ul>
+          </div>
+
+          <div className="bg-surface p-8 rounded-[2.5rem] border border-ink/5">
+             <h3 className="text-2xl font-serif text-ink mb-6 uppercase tracking-tight">Match Timings</h3>
+             <ul className="space-y-4">
+                {[
+                  { label: "Monday to Friday", value: "5:00 PM Onwards" },
+                  { label: "Saturday & Sunday", value: "2:00 PM Onwards" },
+                  { label: "Format", value: "Day-Night Pink Ball" },
+                ].map((item) => (
+                  <li key={item.label} className="flex justify-between items-center border-b border-ink/5 pb-2">
+                    <span className="text-ink/60 text-sm font-medium">{item.label}</span>
+                    <span className="text-pink-ball font-serif text-lg">{item.value}</span>
+                  </li>
+                ))}
+             </ul>
+          </div>
         </div>
 
         {seriesList.length > 0 ? (

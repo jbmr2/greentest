@@ -31,15 +31,15 @@ export function Contact() {
                      <Mail className="w-6 h-6 text-pink-ball shrink-0" />
                      <div>
                        <h3 className="text-[10px] font-bold tracking-widest uppercase text-cricket-green-light mb-1">Email</h3>
-                       <p className="text-lg font-light text-white">info@jbmrgreentesttrophy.in</p>
+                       <p className="text-lg font-light text-white">jbmrgreentesttrophy@gmail.com</p>
                      </div>
                    </li>
                    <li className="flex gap-6">
                      <MapPin className="w-6 h-6 text-pink-ball shrink-0" />
                      <div>
-                       <h3 className="text-[10px] font-bold tracking-widest uppercase text-cricket-green-light mb-1">Website</h3>
+                       <h3 className="text-[10px] font-bold tracking-widest uppercase text-cricket-green-light mb-1">Venue</h3>
                        <p className="text-lg font-light text-white leading-relaxed">
-                         jbmrgreentesttrophy.in
+                         Noida, India
                        </p>
                      </div>
                    </li>

@@ -53,17 +53,17 @@ export function Home() {
                 <span className="text-pink-ball uppercase tracking-widest font-bold text-xs">Season 1 • Planting Seeds</span>
               </div>
               
-              <h1 className="text-5xl md:text-[80px] font-serif font-black tracking-tight text-white leading-[0.85] mb-6 md:mb-8 drop-shadow-xl uppercase">
-                JBMR <span className="text-pink-ball italic" style={{ filter: 'drop-shadow(0 0 20px rgba(255,42,112,0.6))' }}>Green</span><br/>
-                Test Trophy™
+              <h1 className="text-4xl md:text-[60px] lg:text-[70px] font-serif font-black tracking-tight text-white leading-[0.85] mb-6 md:mb-8 drop-shadow-xl uppercase">
+                Jai Baba Mohan Ram <br/>
+                <span className="text-pink-ball italic" style={{ filter: 'drop-shadow(0 0 20px rgba(255,42,112,0.6))' }}>Green</span> Test Trophy
               </h1>
               
-              <p className="text-lg md:text-xl text-white/70 font-sans font-light mb-4 max-w-xl leading-relaxed">
-                Great Things Take Time — In Test Cricket and in Nature
+              <p className="text-lg md:text-2xl text-white font-sans font-bold mb-4 max-w-xl leading-relaxed uppercase tracking-wider">
+                Long-Format Day-Night Pink Ball Cricket
               </p>
               
-              <p className="text-base md:text-lg text-white/50 font-sans font-light mb-8 md:mb-12 max-w-xl leading-relaxed">
-                A competitive 3-day pink ball tournament celebrating discipline, patience, and the true spirit of long-format cricket.
+              <p className="text-base md:text-lg text-white/70 font-sans font-light mb-8 md:mb-12 max-w-xl leading-relaxed">
+                A premier long-format tournament reviving the true spirit of Test cricket through discipline, strategy, and competitive multi-day matches.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-6">
