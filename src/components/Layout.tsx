@@ -123,7 +123,7 @@ export function Navbar() {
 
 export function Footer() {
   return (
-    <footer className="bg-ink text-paper/80 py-20 border-t border-cricket-green/20 relative overflow-hidden">
+    <footer className="bg-surface text-white/60 py-20 border-t border-white/5 relative overflow-hidden">
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay bg-[url('https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?q=80&w=2000&auto=format&fit=crop')] bg-cover" />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-8">
@@ -131,17 +131,17 @@ export function Footer() {
              <Link to="/" className="flex items-center gap-2 mb-6">
               <span className="text-2xl font-serif font-bold text-white uppercase tracking-tight">JBMR <span className="text-cricket-green-light italic">Green</span> Test Trophy™</span>
             </Link>
-            <p className="text-sm leading-relaxed mb-8 max-w-sm font-light text-paper/60">
+            <p className="text-sm leading-relaxed mb-8 max-w-sm font-light text-white/40">
               Join the Movement. Experience the spirit of long-format cricket and be part of a tournament built on excellence, patience, and growth.
             </p>
-            <div className="space-y-2 text-xs uppercase tracking-widest font-bold text-paper/40">
+            <div className="space-y-2 text-xs uppercase tracking-widest font-bold text-white/20">
               <p>Powered By <span className="text-white">JBMR Sports</span></p>
               <p>Presented By <span className="text-white">Good Length Sports</span></p>
             </div>
           </div>
 
           <div className="md:col-span-3 md:col-start-6">
-            <h3 className="text-xs font-bold uppercase tracking-widest text-paper/40 mb-6">Tournament</h3>
+            <h3 className="text-xs font-bold uppercase tracking-widest text-white/40 mb-6">Tournament</h3>
             <ul className="space-y-4">
               <li><Link to="/series" className="hover:text-white transition-colors">Series Overview</Link></li>
               <li><Link to="/schedule" className="hover:text-white transition-colors">Fixtures & Timing</Link></li>
@@ -152,7 +152,7 @@ export function Footer() {
           </div>
 
           <div className="md:col-span-3">
-             <h3 className="text-xs font-bold uppercase tracking-widest text-paper/40 mb-6">Initiative</h3>
+             <h3 className="text-xs font-bold uppercase tracking-widest text-white/40 mb-6">Initiative</h3>
             <ul className="space-y-4">
               <li><Link to="/teams" className="hover:text-white transition-colors">Participating Squads</Link></li>
               <li><Link to="/about" className="hover:text-white transition-colors">Our Story</Link></li>
@@ -162,7 +162,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-20 pt-8 border-t border-paper/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-medium text-paper/40 uppercase tracking-widest">
+        <div className="mt-20 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-medium text-white/40 uppercase tracking-widest">
           <p>&copy; {new Date().getFullYear()} JBMR Sports.</p>
           <div className="flex gap-6 items-center">
             <span>Play</span>
