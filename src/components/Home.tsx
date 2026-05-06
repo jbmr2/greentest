@@ -54,12 +54,16 @@ export function Home() {
               </div>
               
               <h1 className="text-5xl md:text-[80px] font-serif font-black tracking-tight text-white leading-[0.85] mb-6 md:mb-8 drop-shadow-xl uppercase">
-                The <span className="text-pink-ball italic" style={{ filter: 'drop-shadow(0 0 20px rgba(255,42,112,0.6))' }}>Pink Ball</span><br/>
-                Test Trophy
+                JBMR <span className="text-pink-ball italic" style={{ filter: 'drop-shadow(0 0 20px rgba(255,42,112,0.6))' }}>Green</span><br/>
+                Test Trophy™
               </h1>
               
-              <p className="text-lg md:text-xl text-white/70 font-sans font-light mb-8 md:mb-12 max-w-xl leading-relaxed">
-                Reviving the true format of the game under lights. 4 Elite Teams. 3 Days. A commitment to nature.
+              <p className="text-lg md:text-xl text-white/70 font-sans font-light mb-4 max-w-xl leading-relaxed">
+                Great Things Take Time — In Test Cricket and in Nature
+              </p>
+              
+              <p className="text-base md:text-lg text-white/50 font-sans font-light mb-8 md:mb-12 max-w-xl leading-relaxed">
+                A competitive 3-day pink ball tournament celebrating discipline, patience, and the true spirit of long-format cricket.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-6">
@@ -67,13 +71,13 @@ export function Home() {
                   to="/schedule"
                   className="inline-flex items-center justify-center bg-cricket-green text-white px-10 py-5 rounded-full text-base font-serif font-bold tracking-widest uppercase transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
                 >
-                  Watch Live Info
+                  View Fixtures
                 </Link>
                 <Link
-                  to="/green-initiative"
+                  to="/contact"
                   className="inline-flex items-center justify-center bg-white/5 hover:bg-white/10 text-white border border-white/20 px-10 py-5 rounded-full text-base font-serif font-bold tracking-widest uppercase transition-all hover:-translate-y-1 backdrop-blur-md"
                 >
-                  Our Green Cause
+                  Register Team
                 </Link>
               </div>
             </motion.div>
@@ -159,7 +163,7 @@ export function Home() {
                   viewport={{ once: true }}
                   className="text-5xl md:text-7xl font-serif font-black mb-8 leading-[0.9] uppercase text-white"
                 >
-                  Why <span className="text-pink-ball italic">Pink</span>?
+                  Tournament <span className="text-pink-ball italic">Highlights</span>
                 </motion.h2>
                 <motion.p 
                   initial={{ opacity: 0, y: 20 }}
@@ -168,14 +172,14 @@ export function Home() {
                   transition={{ delay: 0.1 }}
                   className="text-xl text-white/70 font-sans font-light mb-12 leading-relaxed"
                 >
-                  The pink ball behaves differently. It swings more under the lights, tests the batsmen's technique, and brings the bowlers right back into the game. It is the perfect modern evolution of the classic format.
+                  Experience the pinnacle of competitive cricket with our unique tournament format designed for the modern era.
                 </motion.p>
                 
                 <div className="space-y-6">
                   {[
-                    { icon: Trophy, title: "Purest Format", desc: "3 days of grueling cricket that demands extreme mental fortitude." },
-                    { icon: Moon, title: "Under Lights", desc: "Evening sessions where the ball darts around, separating the good from the great." },
-                    { icon: TreePine, title: "A Greener Pitch", desc: "For every boundary, a seed is planted to secure a climate-resilient future." }
+                    { icon: Trophy, title: "3-Day Pink Ball Matches", desc: "Strategic gameplay under lights with the swing and spice of the pink ball." },
+                    { icon: Moon, title: "Elite Cricketing Experience", desc: "Professional match environment tailored for serious cricketers." },
+                    { icon: TreePine, title: "Green Initiative & Tree Plantation", desc: "Every match contributes to a greener planet through our dedicated environmental efforts." }
                   ].map((feature, idx) => (
                     <motion.div 
                       key={idx}
@@ -213,7 +217,7 @@ export function Home() {
               The <span className="italic font-light text-cricket-green-light">Green</span> Initiative
             </h2>
             <p className="text-white/70 uppercase tracking-widest text-sm font-bold font-sans">
-              Grow the Game. Grow the Planet.
+              Growing the Game. Growing the Planet.
             </p>
           </motion.div>
 
@@ -223,12 +227,12 @@ export function Home() {
               <div className="w-20 h-20 bg-paper border border-white/10 text-cricket-green-light rounded-full flex items-center justify-center mx-auto mb-8 relative z-10">
                 <TreePine className="w-10 h-10" />
               </div>
-              <h3 className="text-4xl font-serif text-white mb-4 relative z-10 uppercase tracking-tight">Tracking Our Impact</h3>
+              <h3 className="text-4xl font-serif text-white mb-4 relative z-10 uppercase tracking-tight">Our Vision</h3>
               <p className="text-white/60 font-light text-lg max-w-xl mx-auto relative z-10 mb-8">
-                Our environmental milestones are currently being updated for the new season. Stay tuned as we grow our impact.
+                To preserve and promote the culture of long-format cricket by creating a competitive platform that values patience, discipline, and true cricketing character.
               </p>
               <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full border border-cricket-green/30 bg-cricket-green/10 text-cricket-green-light font-bold text-[10px] uppercase tracking-widest relative z-10">
-                <Sprout className="w-3 h-3" /> Coming Soon
+                <Sprout className="w-3 h-3" /> Growth Takes Time
               </div>
             </div>
           </div>

@@ -40,7 +40,7 @@ export function Navbar() {
           <div className="flex items-center gap-2">
             <Link to="/" className="flex items-center gap-2 group focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-ball rounded-lg" aria-label="JBMR Green Home">
               <span className="text-3xl font-serif font-bold tracking-tight text-white group-hover:text-pink-ball transition-colors">
-                 JBMR <span className="font-sans font-light italic text-cricket-green-light">Green</span>
+                 JBMR <span className="font-sans font-light italic text-cricket-green-light">Green</span> <span className="text-xs align-top opacity-50">TM</span>
               </span>
             </Link>
           </div>
@@ -129,14 +129,15 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-8">
           <div className="md:col-span-4">
              <Link to="/" className="flex items-center gap-2 mb-6">
-              <div className="w-12 h-12 rounded-full bg-cricket-green flex items-center justify-center">
-                <TreePine className="h-6 w-6 text-paper" />
-              </div>
-              <span className="text-2xl font-serif font-bold text-white">JBMR Green</span>
+              <span className="text-2xl font-serif font-bold text-white uppercase tracking-tight">JBMR <span className="text-cricket-green-light italic">Green</span> Test Trophy™</span>
             </Link>
             <p className="text-sm leading-relaxed mb-8 max-w-sm font-light text-paper/60">
-              Reviving the True Test. Planting the seeds for tomorrow. Where time builds cricketers and nature grows stronger.
+              Join the Movement. Experience the spirit of long-format cricket and be part of a tournament built on excellence, patience, and growth.
             </p>
+            <div className="space-y-2 text-xs uppercase tracking-widest font-bold text-paper/40">
+              <p>Powered By <span className="text-white">JBMR Sports</span></p>
+              <p>Presented By <span className="text-white">Good Length Sports</span></p>
+            </div>
           </div>
 
           <div className="md:col-span-3 md:col-start-6">

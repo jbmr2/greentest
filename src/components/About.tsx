@@ -11,10 +11,10 @@ export function About() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-             <h6 className="text-xs font-bold tracking-widest uppercase text-cricket-green mb-6">Our Story</h6>
+             <h6 className="text-xs font-bold tracking-widest uppercase text-cricket-green mb-6">About the Tournament</h6>
              <h1 className="text-5xl md:text-7xl font-serif font-medium mb-8 leading-tight text-ink">
-               The return of the <br className="hidden md:block"/>
-               <i className="text-cricket-green">true test.</i>
+               JBMR <span className="text-cricket-green">Green</span><br className="hidden md:block"/>
+               Test Trophy™
              </h1>
           </motion.div>
         </div>
@@ -45,13 +45,10 @@ export function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
             >
-              <h2 className="text-3xl font-serif mb-6 text-ink">What is JBMR Green Test Trophy?</h2>
+              <h2 className="text-3xl font-serif mb-6 text-ink">The Spirit of the Game</h2>
               <div className="prose prose-lg text-ink/70 font-light leading-relaxed">
                 <p>
-                  The JBMR Green Test Trophy is an elite pink-ball Test cricket tournament designed to bring back the traditional glory of the longer format. Spanning multiple day-night fixtures, it gives young and established cricketers the platform to test their technique, temperament, and stamina across three grueling days of competitive cricket.
-                </p>
-                <p>
-                  However, its purpose goes beyond the boundary—it's intrinsically tied to environmental conservation.
+                  JBMR Green Test Trophy™ is a unique cricket tournament designed to celebrate the values of long-format cricket through competitive 3-day pink ball matches. Built on discipline, patience, and character, the tournament creates a platform for serious cricketers who respect the traditional spirit of the game while embracing a modern presentation.
                 </p>
               </div>
             </motion.section>
@@ -61,10 +58,10 @@ export function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
             >
-              <h3 className="text-3xl font-serif text-ink mb-6">Why Test Cricket?</h3>
+              <h3 className="text-3xl font-serif text-ink mb-6">Green Initiative</h3>
               <div className="prose prose-lg text-ink/70 font-light leading-relaxed border-l-2 border-cricket-green pl-6 py-2">
                 <p>
-                  In an era dominated by fast-paced T20s, the art of building an innings and executing long bowling spells is fading. We believe Test cricket is the ultimate format—the true test of character. It demands patience, resilience, and tactical depth. By reviving local day-night Test matches, we are ensuring the foundations of cricket remain strong.
+                  Alongside cricket, the tournament promotes sustainability through green initiatives and tree plantation, highlighting that both nature and greatness require time to grow. Growing the Game. Growing the Planet.
                 </p>
               </div>
             </motion.section>
@@ -75,9 +72,9 @@ export function About() {
                viewport={{ once: true, margin: "-100px" }}
                className="bg-cricket-green text-paper p-12 rounded-[2rem]"
             >
-              <h3 className="text-3xl font-serif mb-6 text-white text-center">Why Tree Plantation?</h3>
+              <h3 className="text-3xl font-serif mb-6 text-white text-center">Our Commitment</h3>
               <p className="text-lg text-paper/80 font-light leading-relaxed text-center mb-0">
-                Just like a solid Test innings, growing a tree requires time, patience, and nurturing. For every match, century, and 5-wicket haul, we plant saplings across the community. Our goal is not just to build better cricketers, but to leave behind a thriving, greener planet for future generations.
+                We Plant Trees Because Growth Takes Time — Just Like Test Cricket. The JBMR Green Test Trophy™ goes beyond cricket by promoting environmental responsibility through tree plantation initiatives.
               </p>
             </motion.section>
           </div>

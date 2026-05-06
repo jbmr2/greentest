@@ -15,10 +15,25 @@ export function PointsTable() {
     <div className="bg-paper min-h-screen pt-24 pb-16">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-12">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-medium text-ink mb-4 md:mb-6">Standings</h1>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-medium text-ink mb-4 md:mb-6">Points System & Standings</h1>
           <p className="text-lg md:text-xl text-ink/60 font-light border-b border-ink/10 pb-6 md:pb-8">
-             Current positions across the JBMR Green Test Trophy.
+             6 for Win • 3 for Tie • 2 for Draw • +1 for First Innings Lead
           </p>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-12">
+          {[
+            { label: "Win", pts: "6" },
+            { label: "Tie", pts: "3" },
+            { label: "Draw", pts: "2" },
+            { label: "Loss", pts: "0" },
+            { label: "1st Inn Lead", pts: "+1" },
+          ].map((item) => (
+            <div key={item.label} className="bg-surface p-4 rounded-2xl border border-ink/5 text-center">
+              <div className="text-2xl font-serif text-cricket-green font-bold">{item.pts}</div>
+              <div className="text-[10px] uppercase tracking-widest text-ink/40 font-bold">{item.label}</div>
+            </div>
+          ))}
         </div>
 
         {sortedTeams.length > 0 ? (

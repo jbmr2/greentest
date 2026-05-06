@@ -65,10 +65,10 @@ export function GreenInitiative() {
             <h2 className="text-4xl font-serif text-ink mb-6 md:mb-8">The Philosophy</h2>
             <div className="text-xl md:text-2xl text-ink/70 font-light leading-relaxed font-serif italic border-t border-ink/10 pt-8 md:pt-12 mb-8 md:mb-12">
               <p>
-                The JBMR Green Test Trophy is more than a cricket tournament—it is a commitment to sustainability.
-                Just like Test cricket demands patience, discipline, and time, nature also requires care and long-term dedication.
+                The JBMR Green Test Trophy™ goes beyond cricket by promoting environmental responsibility through tree plantation initiatives.
+                Just like Test cricket demands patience and commitment, nature also grows through time and care.
                 <br/><br/>
-                Through this initiative, we plant trees to build a greener future while reviving the true spirit of the game.
+                We Plant Trees Because Growth Takes Time — Just Like Test Cricket.
               </p>
             </div>
             

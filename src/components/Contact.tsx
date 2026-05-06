@@ -31,24 +31,15 @@ export function Contact() {
                      <Mail className="w-6 h-6 text-pink-ball shrink-0" />
                      <div>
                        <h3 className="text-[10px] font-bold tracking-widest uppercase text-cricket-green-light mb-1">Email</h3>
-                       <p className="text-lg font-light text-white">jbmrsports@gmail.com</p>
-                     </div>
-                   </li>
-                   <li className="flex gap-6">
-                     <Phone className="w-6 h-6 text-pink-ball shrink-0" />
-                     <div>
-                       <h3 className="text-[10px] font-bold tracking-widest uppercase text-cricket-green-light mb-1">Phone</h3>
-                       <p className="text-lg font-light text-white">+91 98765 43210</p>
+                       <p className="text-lg font-light text-white">info@jbmrgreentesttrophy.in</p>
                      </div>
                    </li>
                    <li className="flex gap-6">
                      <MapPin className="w-6 h-6 text-pink-ball shrink-0" />
                      <div>
-                       <h3 className="text-[10px] font-bold tracking-widest uppercase text-cricket-green-light mb-1">Office</h3>
+                       <h3 className="text-[10px] font-bold tracking-widest uppercase text-cricket-green-light mb-1">Website</h3>
                        <p className="text-lg font-light text-white leading-relaxed">
-                         JBMR Sports Arena,<br/>
-                         Main District Road,<br/>
-                         India
+                         jbmrgreentesttrophy.in
                        </p>
                      </div>
                    </li>
