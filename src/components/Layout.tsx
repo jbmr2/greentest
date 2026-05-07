@@ -40,9 +40,9 @@ export function Navbar() {
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-2">
             <Link to="/" className="flex items-center gap-2 group focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-ball rounded-lg" aria-label="JBMR Green Home">
-              <span className="text-3xl font-serif font-bold tracking-tight text-white group-hover:text-pink-ball transition-colors uppercase leading-none">
-                 Jai Baba Mohan Ram <br/>
-                 <span className="font-sans font-light italic text-cricket-green-light">Green</span> Test Trophy
+              <span className="text-2xl md:text-3xl font-serif font-bold tracking-tight text-white group-hover:text-pink-ball transition-colors uppercase leading-none">
+                 JBMR <span className="font-sans font-light italic text-cricket-green-light">Green</span> <br className="md:hidden" />
+                 Test Trophy
               </span>
             </Link>
           </div>
