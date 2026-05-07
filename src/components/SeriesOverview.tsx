@@ -2,30 +2,26 @@ import { motion } from "motion/react";
 import { Layers, Calendar, MapPin, ArrowRight, Trophy } from "lucide-react";
 import { useTournamentData } from "../lib/useTournamentData";
 
-export function SeriesOverview() {
+export function TournamentFormat() {
   const { teams, schedule } = useTournamentData();
 
-  // Dynamically group matches into series based on team pairs
-  const seriesGroups = schedule.reduce((acc, match) => {
+  // Dynamically group matches into pools based on team pairs
+  const poolGroups = schedule.reduce((acc, match) => {
     if (match.id === 'final') return acc;
     
-    // Create a unique key for the team pair regardless of order
-    const teamPair = [match.team1, match.team2].sort();
-    const key = teamPair.join('-');
+    const key = match.pool || 'A'; // Default to A if not specified
     
     if (!acc[key]) {
       acc[key] = {
         id: key,
-        team1: teamPair[0],
-        team2: teamPair[1],
         matches: []
       };
     }
     acc[key].matches.push(match);
     return acc;
-  }, {} as Record<string, { id: string, team1: string, team2: string, matches: any[] }>);
+  }, {} as Record<string, { id: string, matches: any[] }>);
 
-  const seriesList = Object.values(seriesGroups);
+  const poolsList = Object.values(poolGroups);
   const finalMatch = schedule.find(m => m.id === 'final');
 
   return (
@@ -36,10 +32,10 @@ export function SeriesOverview() {
             <div className="p-3 bg-cricket-green/10 rounded-2xl text-cricket-green">
               <Layers className="w-8 h-8" />
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-medium text-ink">Series Overview</h1>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-medium text-ink uppercase">Tournament Format</h1>
           </div>
           <p className="text-lg md:text-xl text-ink/60 font-light border-b border-ink/10 pb-6 md:pb-8">
-             12 Teams • 4 Pools • 2-Day League Matches • 3-Day Knockouts
+             12 Teams • 4 Pools • League Matches & Knockouts
           </p>
         </div>
 
@@ -77,46 +73,28 @@ export function SeriesOverview() {
           </div>
         </div>
 
-        {seriesList.length > 0 ? (
+        {poolsList.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {seriesList.map((series: any, i: number) => {
-              const t1 = teams.find(t => t.id === series.team1);
-              const t2 = teams.find(t => t.id === series.team2);
-              if(!t1 || !t2) return null;
-
+            {poolsList.map((pool: any, i: number) => {
               return (
                 <motion.div 
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: i * 0.1 }}
-                  key={series.id}
+                  key={pool.id}
                   className="bg-surface rounded-[2.5rem] border border-ink/5 overflow-hidden flex flex-col group hover:shadow-2xl hover:-translate-y-1 transition-all"
                 >
                   <div className="p-8 border-b border-ink/5 bg-ink/5 flex justify-between items-center">
-                     <span className="text-xs font-bold text-cricket-green uppercase tracking-[0.2em]">Series {i + 1}</span>
+                     <span className="text-xs font-bold text-cricket-green uppercase tracking-[0.2em]">Pool {pool.id} Stage</span>
                      <div className="bg-pink-ball/10 px-3 py-1 rounded-full">
-                        <span className="text-[10px] font-bold text-pink-ball uppercase tracking-widest">0 - 0</span>
+                        <span className="text-[10px] font-bold text-pink-ball uppercase tracking-widest">Ongoing</span>
                      </div>
                   </div>
                   
                   <div className="p-8 flex-grow">
-                     <div className="flex items-center justify-between mb-8">
-                        <div className="text-center flex-1">
-                           <img src={t1.logo} className="w-12 h-12 rounded-full mx-auto mb-3 shadow-lg" alt={t1.name} />
-                           <div className="text-xl font-serif text-ink mb-1">{t1.short}</div>
-                           <div className={`w-full h-1 rounded-full ${t1.color}`} />
-                        </div>
-                        <div className="px-4 font-serif italic text-ink/20 text-xl self-end mb-2">vs</div>
-                        <div className="text-center flex-1">
-                           <img src={t2.logo} className="w-12 h-12 rounded-full mx-auto mb-3 shadow-lg" alt={t2.name} />
-                           <div className="text-xl font-serif text-ink mb-1">{t2.short}</div>
-                           <div className={`w-full h-1 rounded-full ${t2.color}`} />
-                        </div>
-                     </div>
-
                      <div className="space-y-4">
                         <div className="text-[10px] font-bold text-ink/30 uppercase tracking-[0.2em] mb-2">Match Schedule</div>
-                        {series.matches.map((m: any, idx: number) => (
+                        {pool.matches.map((m: any, idx: number) => (
                           <div key={idx} className="flex items-center gap-4 text-xs">
                              <div className="w-8 h-8 rounded-full bg-paper border border-ink/5 flex items-center justify-center shrink-0 font-serif font-bold text-ink/40">
                                 {idx + 1}
@@ -124,7 +102,7 @@ export function SeriesOverview() {
                              <div className="flex-1">
                                 <div className="flex items-center gap-2 text-ink/80">
                                    <Calendar className="w-3 h-3 text-pink-ball" />
-                                   {new Date(m.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric'})}
+                                   {m.team1} vs {m.team2}
                                 </div>
                                 <div className="flex items-center gap-2 text-ink/40 font-medium">
                                    <MapPin className="w-3 h-3" />
@@ -138,7 +116,7 @@ export function SeriesOverview() {
 
                   <div className="p-6 bg-paper/30 border-t border-ink/5 mt-auto">
                      <button className="w-full py-3 bg-surface border border-ink/10 rounded-2xl text-[10px] font-bold uppercase tracking-widest text-ink/60 hover:text-cricket-green hover:border-cricket-green transition-all flex items-center justify-center gap-2">
-                        Series Details <ArrowRight className="w-3 h-3" />
+                        Pool Details <ArrowRight className="w-3 h-3" />
                      </button>
                   </div>
                 </motion.div>
@@ -151,12 +129,12 @@ export function SeriesOverview() {
                <Layers className="w-12 h-12 text-ink/20" />
             </div>
             <h2 className="text-3xl font-serif text-ink mb-2">Coming Soon</h2>
-            <p className="text-ink/60 font-light text-lg">We are organizing the series matchups. Details will be available shortly.</p>
+            <p className="text-ink/60 font-light text-lg">We are organizing the league matches. Details will be available shortly.</p>
           </div>
         )}
 
         {/* Grand Final Feature */}
-        {finalMatch && seriesList.length > 0 && (
+        {finalMatch && poolsList.length > 0 && (
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}

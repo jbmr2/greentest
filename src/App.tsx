@@ -13,7 +13,7 @@ import { Contact } from "./components/Contact";
 import { Thumbnail } from "./components/Thumbnail";
 import { TournamentRules } from "./components/TournamentRules";
 import { PlayerStats } from "./components/PlayerStats";
-import { SeriesOverview } from "./components/SeriesOverview";
+import { TournamentFormat } from "./components/SeriesOverview";
 import { TournamentBracket } from "./components/TournamentBracket";
 import { Admin } from "./components/Admin";
 
@@ -35,7 +35,7 @@ export default function App() {
           <Route path="contact" element={<Contact />} />
           <Route path="rules" element={<TournamentRules />} />
           <Route path="stats" element={<PlayerStats />} />
-          <Route path="series" element={<SeriesOverview />} />
+          <Route path="format" element={<TournamentFormat />} />
           <Route path="admin" element={<Admin />} />
         </Route>
         <Route path="/thumbnail" element={<Thumbnail />} />
