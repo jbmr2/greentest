@@ -14,6 +14,7 @@ import { Thumbnail } from "./components/Thumbnail";
 import { TournamentRules } from "./components/TournamentRules";
 import { PlayerStats } from "./components/PlayerStats";
 import { SeriesOverview } from "./components/SeriesOverview";
+import { TournamentBracket } from "./components/TournamentBracket";
 import { Admin } from "./components/Admin";
 
 export default function App() {
@@ -23,6 +24,7 @@ export default function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
+          <Route path="bracket" element={<TournamentBracket />} />
           <Route path="schedule" element={<Schedule />} />
           <Route path="points" element={<PointsTable />} />
           <Route path="teams" element={<Teams />} />

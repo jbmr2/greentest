@@ -19,6 +19,7 @@ export function Navbar() {
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "Series", path: "/series" },
+    { name: "Bracket", path: "/bracket" },
     { name: "Schedule", path: "/schedule" },
     { name: "Points", path: "/points" },
     { name: "Stats", path: "/stats" },
@@ -150,6 +151,7 @@ export function Footer() {
             <h3 className="text-xs font-bold uppercase tracking-widest text-white/40 mb-6">Tournament</h3>
             <ul className="space-y-4">
               <li><Link to="/series" className="hover:text-white transition-colors">Series Overview</Link></li>
+              <li><Link to="/bracket" className="hover:text-white transition-colors">Tournament Bracket</Link></li>
               <li><Link to="/schedule" className="hover:text-white transition-colors">Fixtures & Timing</Link></li>
               <li><Link to="/points" className="hover:text-white transition-colors">Points Table</Link></li>
               <li><Link to="/stats" className="hover:text-white transition-colors">Player Stats</Link></li>
